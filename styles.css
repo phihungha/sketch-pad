@@ -1,0 +1,24 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sketchpad {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sketchpad-row {
+  display: flex;
+  flex: 1;
+}
+
+.sketchpad-square {
+  flex: 1;
+}
