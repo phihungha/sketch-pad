@@ -14,6 +14,9 @@ function generateGrid(numOfSquares) {
                     square.classList.add("painted-square");
                 }
             });
+            square.addEventListener("mousedown", function () {
+                square.classList.add("painted-square");
+            });
             row.appendChild(square);
         };
         for (var j = 0; j < numOfSquares; j++) {
@@ -27,7 +30,7 @@ function clearGrid() {
     paintedSquares.forEach(function (e) { return e.classList.remove("painted-square"); });
 }
 document.querySelector(".new-btn").addEventListener("click", function () {
-    var numOfSquaresInput = prompt("Enter number of squares (max: 100):", "10");
+    var numOfSquaresInput = prompt("Enter number of squares (max: 100):", "20");
     if (numOfSquaresInput != null) {
         var numOfSquares = +numOfSquaresInput;
         if (numOfSquares <= 100) {
@@ -38,4 +41,4 @@ document.querySelector(".new-btn").addEventListener("click", function () {
 document.querySelector(".clear-btn").addEventListener("click", function () {
     clearGrid();
 });
-generateGrid(10);
+generateGrid(20);

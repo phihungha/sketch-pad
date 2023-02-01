@@ -18,6 +18,9 @@ function generateGrid(numOfSquares: number): void {
           square.classList.add("painted-square");
         }
       });
+      square.addEventListener("mousedown", () => {
+        square.classList.add("painted-square");
+      });
 
       row.appendChild(square);
     }
@@ -32,7 +35,7 @@ function clearGrid(): void {
 }
 
 (document.querySelector(".new-btn") as HTMLButtonElement).addEventListener("click", () => {
-  let numOfSquaresInput = prompt("Enter number of squares (max: 100):", "10");
+  let numOfSquaresInput = prompt("Enter number of squares (max: 100):", "20");
   if (numOfSquaresInput != null) {
     const numOfSquares = +numOfSquaresInput;
     if (numOfSquares <= 100) {
@@ -45,4 +48,4 @@ function clearGrid(): void {
   clearGrid();
 });
 
-generateGrid(10);
+generateGrid(20);
