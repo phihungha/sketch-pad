@@ -9,8 +9,10 @@ function generateGrid(numOfSquares) {
         var _loop_1 = function (j) {
             var square = document.createElement("div");
             square.classList.add("sketchpad-square");
-            square.addEventListener("mouseover", function () {
-                square.classList.add("painted-square");
+            square.addEventListener("mouseover", function (e) {
+                if (e.buttons === 1) {
+                    square.classList.add("painted-square");
+                }
             });
             row.appendChild(square);
         };
@@ -20,6 +22,10 @@ function generateGrid(numOfSquares) {
         sketchpad.appendChild(row);
     }
 }
+function clearGrid() {
+    var paintedSquares = document.querySelectorAll(".painted-square");
+    paintedSquares.forEach(function (e) { return e.classList.remove("painted-square"); });
+}
 document.querySelector(".new-btn").addEventListener("click", function () {
     var numOfSquaresInput = prompt("Enter number of squares (max: 100):", "10");
     if (numOfSquaresInput != null) {
@@ -28,5 +34,8 @@ document.querySelector(".new-btn").addEventListener("click", function () {
             generateGrid(numOfSquares);
         }
     }
+});
+document.querySelector(".clear-btn").addEventListener("click", function () {
+    clearGrid();
 });
 generateGrid(10);

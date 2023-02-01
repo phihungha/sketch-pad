@@ -13,8 +13,10 @@ function generateGrid(numOfSquares: number): void {
       const square = document.createElement("div");
       square.classList.add("sketchpad-square");
 
-      square.addEventListener("mouseover", () => {
-        square.classList.add("painted-square");
+      square.addEventListener("mouseover", (e) => {
+        if (e.buttons === 1) {
+          square.classList.add("painted-square");
+        }
       });
 
       row.appendChild(square);
@@ -22,6 +24,11 @@ function generateGrid(numOfSquares: number): void {
 
     sketchpad.appendChild(row);
   }
+}
+
+function clearGrid(): void {
+  const paintedSquares = document.querySelectorAll(".painted-square")!;
+  paintedSquares.forEach((e) => e.classList.remove("painted-square"));
 }
 
 (document.querySelector(".new-btn") as HTMLButtonElement).addEventListener("click", () => {
@@ -32,6 +39,10 @@ function generateGrid(numOfSquares: number): void {
       generateGrid(numOfSquares);
     }
   }
+});
+
+(document.querySelector(".clear-btn") as HTMLButtonElement).addEventListener("click", () => {
+  clearGrid();
 });
 
 generateGrid(10);
