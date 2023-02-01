@@ -31,14 +31,17 @@ button:hover.danger {
 }
 
 .toolbar {
-  width: 500px;
+  width: 80%;
+  max-width: 700px;
   display: flex;
   justify-content: space-around;
 }
 
 .sketchpad {
-  width: 500px;
-  height: 500px;
+  width: 70%;
+  height: 70%;
+  max-width: 700px;
+  max-height: 700px;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
